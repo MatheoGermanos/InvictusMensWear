@@ -54,14 +54,28 @@ document.addEventListener("DOMContentLoaded", () => {
                         testProducts = testProducts.concat(data.products);
                     }
                     testProducts.forEach((product, idx) => {
-                        // Create product card
+                        // Create product card as a link
+                        const link = document.createElement("a");
+                        link.href =
+                            "/invictusmenswear/products/info?prod=" +
+                            encodeURIComponent(product.title);
+                        link.className = "Info-Card-Single-Link";
+                        link.style.textDecoration = "none";
+                        link.style.color = "inherit";
+                        link.tabIndex = 0;
+
                         const card = document.createElement("div");
                         card.className = "Info-Card-Single";
+                        card.style.cursor = "pointer";
 
                         // Main image (first color's main image)
                         let mainImgSrc =
                             product.colors && product.colors[0]
                                 ? product.colors[0].main
+                                : "";
+                        let selectedColor =
+                            product.colors && product.colors[0]
+                                ? product.colors[0].name
                                 : "";
                         const img = document.createElement("img");
                         img.className = "Info-Card-Single-Image";
@@ -89,7 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                 colorDiv.className =
                                     "Info-Card-Single-Colors-Color";
                                 colorDiv.title = color.name;
-                                // Set color background by name (basic mapping)
                                 let colorMap = {
                                     Black: "#000",
                                     Blue: "#00f",
@@ -100,16 +113,31 @@ document.addEventListener("DOMContentLoaded", () => {
                                 colorDiv.style.backgroundColor =
                                     colorMap[color.name] ||
                                     color.name.toLowerCase();
-                                // Change main image on color click
-                                colorDiv.addEventListener("click", () => {
+                                // Change main image and update link on color click
+                                colorDiv.addEventListener("click", (e) => {
+                                    e.preventDefault();
                                     img.src = color.main;
+                                    selectedColor = color.name;
+                                    link.href =
+                                        "/invictusmenswear/products/info?prod=" +
+                                        encodeURIComponent(product.title) +
+                                        "&color=" +
+                                        encodeURIComponent(selectedColor);
                                 });
                                 colorsDiv.appendChild(colorDiv);
                             });
                         }
                         card.appendChild(colorsDiv);
 
-                        productsSection.appendChild(card);
+                        // Set initial link href with color
+                        link.href =
+                            "/invictusmenswear/products/info?prod=" +
+                            encodeURIComponent(product.title) +
+                            "&color=" +
+                            encodeURIComponent(selectedColor);
+
+                        link.appendChild(card);
+                        productsSection.appendChild(link);
                     });
                 }
             }

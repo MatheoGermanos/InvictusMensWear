@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Product Details | Invictus MensWear</title>
+        <!-- Slick Carousel -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+        />
+        <link
+            rel="stylesheet"
+            href="../product.css"
+        />
+        <link
+            rel="stylesheet"
+            href="info.css"
+        />
+        <link
+            rel="stylesheet"
+            href="../../main.css"
+        />
+    </head>
+    <body>
+        <nav class="Main-Navbar">
+            <div class="Desktop-Nav">
+                <div
+                    class="Desktop-Nav-Logo"
+                    id="Desktop-Nav-Logo"
+                >
+                    <img id="Navbar-Logo" />
+                </div>
+                <div class="Desktop-Nav-Content">
+                    <a
+                        href="#"
+                        class="Desktop-Nav-Content-Item"
+                        onclick="handleBackButton();return false;"
+                        aria-label="Back to products"
+                        >&larr; BACK</a
+                    >
+                    <a
+                        href="/InvictusMensWear/"
+                        class="Desktop-Nav-Content-Item"
+                        >HOME</a
+                    >
+                    <a
+                        href="/InvictusMensWear/products"
+                        class="Desktop-Nav-Content-Item"
+                        >PRODUCTS</a
+                    >
+                    <a
+                        href="../../index.html#about"
+                        class="Desktop-Nav-Content-Item"
+                        >ABOUT US</a
+                    >
+                    <a
+                        href="../../index.html#contact"
+                        class="Desktop-Nav-Content-Item"
+                        >CONTACT</a
+                    >
+                </div>
+                <div class="Desktop-Nav-Toggles">
+                    <label class="Desktop-Nav-Toggles-Theme">
+                        <input
+                            type="checkbox"
+                            id="Light-Day-Switch"
+                            class="Desktop-Nav-Toggles-Theme-switch"
+                        />
+                        <span class="Desktop-Nav-Toggles-Theme-Slider"></span>
+                    </label>
+                    <div class="Desktop-Nav-Toggles-Mobile">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="Mobile-Nav">
+                <div class="Mobile-Nav-Content">
+                    <a
+                        href="#"
+                        class="Mobile-Nav-Content-Item"
+                        onclick="handleBackButton();return false;"
+                        aria-label="Back to products"
+                        >&larr; BACK</a
+                    >
+                    <a
+                        href="/InvictusMensWear/"
+                        class="Mobile-Nav-Content-Item"
+                        >HOME</a
+                    >
+                    <a
+                        href="/InvictusMensWear/products/"
+                        class="Mobile-Nav-Content-Item"
+                        >PRODUCTS</a
+                    >
+                    <a
+                        href="../../index.html#about"
+                        class="Mobile-Nav-Content-Item"
+                        >ABOUT US</a
+                    >
+                    <a
+                        href="../../index.html#contact"
+                        class="Mobile-Nav-Content-Item"
+                        >CONTACT</a
+                    >
+                </div>
+            </div>
+        </nav>
+        <main class="Product">
+            <article class="Product-Card">
+                <section
+                    class="Product-Card-Wrapper"
+                    aria-label="Product Images"
+                >
+                    <div class="Product-Card-Wrapper-Left">
+                        <!-- Main image slider -->
+                        <div class="Product-Card-Wrapper-Left-Image">
+                            <div>
+                                <img
+                                    src="assets/blackShirt.jpg"
+                                    alt="Black T Shirt"
+                                />
+                            </div>
+                            <div>
+                                <img
+                                    src="assets/greenShirt.jpg"
+                                    alt="Green T Shirt"
+                                />
+                            </div>
+                            <div>
+                                <img
+                                    src="assets/redShirt.jpg"
+                                    alt="Red T Shirt"
+                                />
+                            </div>
+                            <div>
+                                <img
+                                    src="assets/grayShirt.jpg"
+                                    alt="Gray T Shirt"
+                                />
+                            </div>
+                            <div>
+                                <img
+                                    src="assets/yellowShirt.jpg"
+                                    alt="Yellow T Shirt"
+                                />
+                            </div>
+                        </div>
+                        <!-- Thumbnail nav -->
+                        <nav
+                            class="Product-Card-Wrapper-Left-Choice"
+                            aria-label="Product Thumbnails"
+                        >
+                            <div>
+                                <img
+                                    src="assets/blackShirt.jpg"
+                                    alt="Black T Shirt Thumbnail"
+                                />
+                            </div>
+                            <div>
+                                <img
+                                    src="assets/greenShirt.jpg"
+                                    alt="Green T Shirt Thumbnail"
+                                />
+                            </div>
+                            <div>
+                                <img
+                                    src="assets/redShirt.jpg"
+                                    alt="Red T Shirt Thumbnail"
+                                />
+                            </div>
+                            <div>
+                                <img
+                                    src="assets/grayShirt.jpg"
+                                    alt="Gray T Shirt Thumbnail"
+                                />
+                            </div>
+                            <div>
+                                <img
+                                    src="assets/yellowShirt.jpg"
+                                    alt="Yellow T Shirt Thumbnail"
+                                />
+                            </div>
+                        </nav>
+                    </div>
+                </section>
+                <div class="Product-Card-Right">
+                    <div>Modern T Shirt</div>
+                    <div>$15</div>
+                    <div>
+                        Premium cotton T shirt, available in multiple colors.
+                        Comfortable, stylish, and perfect for any occasion.
+                    </div>
+                    <div class="Product-Card-Right-Colors">
+                        <div class="Product-Card-Right-Colors-label">
+                            Available colors:
+                        </div>
+                        <div class="Product-Card-Right-Colors-options">
+                            <div
+                                class="Product-Card-Right-Colors-Color red"
+                                title="Red"
+                            ></div>
+                            <div
+                                class="Product-Card-Right-Colors-Color green"
+                                title="Blue"
+                            ></div>
+                            <div
+                                class="Product-Card-Right-Colors-Color black"
+                                title="Black"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="Product-Card-Right-Size">
+                        <div class="Product-Card-Right-Size-label">
+                            Available sizes:
+                        </div>
+                        <div class="Product-Card-Right-Size-options">
+                            <label class="Product-Card-Right-Size-choice">
+                                <input
+                                    type="radio"
+                                    name="size"
+                                    value="S"
+                                    style="display: none"
+                                />
+                                <span>S</span>
+                            </label>
+                            <label class="Product-Card-Right-Size-choice">
+                                <input
+                                    type="radio"
+                                    name="size"
+                                    value="M"
+                                    style="display: none"
+                                />
+                                <span>M</span>
+                            </label>
+                            <label class="Product-Card-Right-Size-choice">
+                                <input
+                                    type="radio"
+                                    name="size"
+                                    value="L"
+                                    style="display: none"
+                                />
+                                <span>L</span>
+                            </label>
+                            <label class="Product-Card-Right-Size-choice">
+                                <input
+                                    type="radio"
+                                    name="size"
+                                    value="XL"
+                                    style="display: none"
+                                />
+                                <span>XL</span>
+                            </label>
+                            <label class="Product-Card-Right-Size-choice">
+                                <input
+                                    type="radio"
+                                    name="size"
+                                    value="2XL"
+                                    style="display: none"
+                                />
+                                <span>2XL</span>
+                            </label>
+                            <label class="Product-Card-Right-Size-choice">
+                                <input
+                                    type="radio"
+                                    name="size"
+                                    value="3XL"
+                                    style="display: none"
+                                />
+                                <span>3XL</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </main>
+        <footer class="Footer">
+            <!-- Company Info Section -->
+            <section
+                class="Footer-Section Footer-Section-Company"
+                aria-labelledby="footer-company-info"
+            >
+                <img
+                    class="Footer-Section-Company-Logo"
+                    id="Footer-Logo"
+                />
+                <p
+                    id="footer-company-info"
+                    class="Footer-Section-Company-Description"
+                >
+                    We are dedicated to bringing you the highest quality
+                    possible for the best prices.
+                </p>
+                <address class="Footer-Section-Company-Address">
+                    <div class="Footer-Section-Company-Address-Item">
+                        <span class="Footer-Section-Company-Address-Icon"
+                            >📍</span
+                        >
+                        <a
+                            href="https://maps.app.goo.gl/rrvHpnn6kHGxPApj9"
+                            class="Footer-Section-Company-Address-Link"
+                        >
+                            Lebanon, Kalik Shopping St
+                        </a>
+                    </div>
+                    <div class="Footer-Section-Company-Address-Item">
+                        <span class="Footer-Section-Company-Address-Icon"
+                            >📞</span
+                        >
+                        <a
+                            href="#WhatsappLink"
+                            class="Footer-Section-Company-Address-Link"
+                        >
+                            70 000 000
+                        </a>
+                    </div>
+                    <div class="Footer-Section-Company-Address-Item">
+                        <span class="Footer-Section-Company-Address-Icon"
+                            >✉️</span
+                        >
+                        <a
+                            href="#EmailLink"
+                            class="Footer-Section-Company-Address-Link"
+                        >
+                            main@invictusmenswear.com
+                        </a>
+                    </div>
+                </address>
+            </section>
+            <!-- Navigation Section -->
+            <nav
+                class="Footer-Section Footer-Section-Navigation"
+                aria-labelledby="footer-navigation"
+            >
+                <h2
+                    id="footer-navigation"
+                    class="Footer-Section-Navigation-Title"
+                >
+                    Navigation
+                </h2>
+                <ul class="Footer-Section-Navigation-List">
+                    <li class="Footer-Section-Navigation-Item">
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="Footer-Section-Navigation-Item">
+                        <a href="#">About us</a>
+                    </li>
+                    <li class="Footer-Section-Navigation-Item">
+                        <a href="#">Contact</a>
+                    </li>
+                    <li class="Footer-Section-Navigation-Item">
+                        <a href="#">FAQs</a>
+                    </li>
+                    <li class="Footer-Section-Navigation-Item">
+                        <a href="#">Categories</a>
+                    </li>
+                    <li class="Footer-Section-Navigation-Item">
+                        <a href="#">Site map</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Social Media Section -->
+            <section
+                class="Footer-Section Footer-Section-Social"
+                aria-labelledby="footer-social"
+            >
+                <h2
+                    id="footer-social"
+                    class="Footer-Section-Social-Title"
+                >
+                    Social Media
+                </h2>
+                <div
+                    class="Footer-Section-Social-Icons"
+                    id="Footer-Social-Icons"
+                >
+                    <!-- Social icons will be injected dynamically by main.js -->
+                </div>
+            </section>
+            <!-- Newsletter Signup Section -->
+            <section
+                class="Footer-Section Footer-Section-Newsletter"
+                aria-labelledby="footer-newsletter"
+            >
+                <h2
+                    id="footer-newsletter"
+                    class="Footer-Section-Newsletter-Title"
+                >
+                    Newsletter Signup
+                </h2>
+                <form class="Footer-Section-Newsletter-Form">
+                    <label
+                        for="email"
+                        class="Footer-Section-Newsletter-Label"
+                    >
+                        Subscribe to receive the latest updates:</label
+                    >
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Your email"
+                        required
+                        class="Footer-Section-Newsletter-Input"
+                    />
+                    <button
+                        type="submit"
+                        class="Footer-Section-Newsletter-Button"
+                    >
+                        Subscribe
+                    </button>
+                </form>
+            </section>
+            <div class="Footer-Copyright">
+                &copy; 2025 Invictus Menswear. All rights reserved.
+            </div>
+        </footer>
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- Slick Carousel -->
+        <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <!-- Font Awesome for nav icon -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+        <script src="../../main.js"></script>
+        <script src="../product.js"></script>
+        <script src="info.js"></script>
+    </body>
+</html>
