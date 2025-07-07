@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         // Create product card as a link
                         const link = document.createElement("a");
                         link.href =
-                            "/invictusmenswear/products/info?prod=" +
+                            "/InvictusMensWear/products/info?prod=" +
                             encodeURIComponent(product.title);
                         link.className = "Info-Card-Single-Link";
                         link.style.textDecoration = "none";
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         // Set initial link href with color
                         link.href =
-                            "/invictusmenswear/products/info?prod=" +
+                            "/InvictusMensWear/products/info?prod=" +
                             encodeURIComponent(product.title) +
                             "&color=" +
                             encodeURIComponent(selectedColor);
