@@ -19,18 +19,17 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
         />
-        <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
         <title>Home</title>
     </head>
     <body>
         <nav class="Main-Navbar">
             <div class="Desktop-Nav">
-                <div class="Desktop-Nav-Logo">
-                    <img
-                        src="assets/test.svg"
-                        alt="Invictus Company Logo"
-                    />
+                <div
+                    class="Desktop-Nav-Logo"
+                    id="Desktop-Nav-Logo"
+                >
+                    <img id="Navbar-Logo" />
                     <!-- INVICTUS -->
                 </div>
                 <div class="Desktop-Nav-Content">
@@ -101,25 +100,19 @@
                 aria-roledescription="carousel"
                 aria-label="Featured products"
             >
-                <div class="Front-Carousel-Items">
-                    <div class="Front-Carousel-Items-Slide">
-                        <img
-                            src="assets/cropped-Carousel-Image.jpg"
-                            alt="Slide 1"
-                        />
+                <div
+                    class="Front-Carousel-Items"
+                    id="Front-Carousel-Items"
+                >
+                    <!-- <div class="Front-Carousel-Items-Slide">
+                        <img id="Carousel-Image-1" />
                     </div>
                     <div class="Front-Carousel-Items-Slide">
-                        <img
-                            src="assets/cropped-Carousel-Image.jpg"
-                            alt="Slide 2"
-                        />
+                        <img id="Carousel-Image-2" />
                     </div>
                     <div class="Front-Carousel-Items-Slide">
-                        <img
-                            src="assets/cropped-Carousel-Image.jpg"
-                            alt="Slide 3"
-                        />
-                    </div>
+                        <img id="Carousel-Image-3" />
+                    </div> -->
                 </div>
                 <button
                     id="Button1"
@@ -165,8 +158,7 @@
             >
                 <img
                     class="Footer-Section-Company-Logo"
-                    src="assets/test.svg"
-                    alt="Invictus Company Logo"
+                    id="Footer-Logo"
                 />
                 <p
                     id="footer-company-info"
@@ -256,27 +248,11 @@
                 >
                     Social Media
                 </h2>
-                <div class="Footer-Section-Social-Icons">
-                    <img
-                        src="assets/Facebook.svg"
-                        alt="Facebook"
-                        class="Footer-Section-Social-Icon"
-                    />
-                    <img
-                        src="assets/instagram.svg"
-                        alt="Instagram"
-                        class="Footer-Section-Social-Icon"
-                    />
-                    <img
-                        src="assets/tiktok.svg"
-                        alt="TikTok"
-                        class="Footer-Section-Social-Icon"
-                    />
-                    <img
-                        src="assets/pintrest.svg"
-                        alt="Pinterest"
-                        class="Footer-Section-Social-Icon"
-                    />
+                <div
+                    class="Footer-Section-Social-Icons"
+                    id="Footer-Social-Icons"
+                >
+                    <!-- Social icons will be injected dynamically by main.js -->
                 </div>
             </section>
 
@@ -322,6 +298,5 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Slick JS -->
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
     <script src="main.js"></script>
 </html>
