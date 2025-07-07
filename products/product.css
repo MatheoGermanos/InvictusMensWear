@@ -525,6 +525,7 @@ body.night-theme .Info-Card-Single {
     padding: 10px;
     justify-content: center;
     gap: 50px;
+    transition: padding-top 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .Info-Card-Single {
     background-color: rgb(255, 255, 255);
@@ -532,8 +533,8 @@ body.night-theme .Info-Card-Single {
     margin: 10px 0px 10px 10px;
 }
 .Info-Card-Single-Image {
-    width: 200px;
-    height: 250px;
+    width: 300px;
+    height: 350px;
 }
 .Info-Card-Single-Text {
     display: flex;
@@ -583,4 +584,7 @@ body.night-theme .Info-Card-Single {
 }
 .black {
     background-color: rgb(0, 0, 0);
+}
+.Main {
+    transition: padding-top 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }

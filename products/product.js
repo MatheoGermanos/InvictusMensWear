@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
     navToggleBtn.addEventListener("click", () => {
         mobileNav.classList.toggle("isOpen");
         setTimeout(() => {
-            adjustCarouselMargin();
+            adjustMainPadding();
         }, NAV_TOGGLE_ANIMATION_DURATION);
     });
 
