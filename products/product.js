@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     img.src = color.main;
                                     selectedColor = color.name;
                                     link.href =
-                                        "/invictusmenswear/products/info?prod=" +
+                                        "/InvictusMensWear/products/info?prod=" +
                                         encodeURIComponent(product.title) +
                                         "&color=" +
                                         encodeURIComponent(selectedColor);
