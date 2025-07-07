@@ -21,24 +21,55 @@ document.addEventListener("DOMContentLoaded", () => {
             Footer.alt = logo.alt;
             Footer.title = logo.title;
 
-            const CarouselImages = data.home.carousel;
-
+            // --- Carousel image selection logic ---
+            const MOBILE_BREAKPOINT = 767;
+            let isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+            let currentCarouselType = isMobile ? "Mobile carousel" : "carousel";
+            let CarouselImages =
+                data.home && data.home[currentCarouselType]
+                    ? data.home[currentCarouselType]
+                    : [];
             const CarouselContainer = document.getElementById(
                 "Front-Carousel-Items"
             );
+            if (!CarouselContainer) {
+                console.error("Carousel container not found");
+                return;
+            }
+            if (!Array.isArray(CarouselImages) || CarouselImages.length === 0) {
+                CarouselContainer.innerHTML =
+                    '<div style="color:red;">No carousel images found for ' +
+                    currentCarouselType +
+                    "</div>";
+                console.error(
+                    "No images found for",
+                    currentCarouselType,
+                    data.home
+                );
+            } else {
+                console.log(
+                    "Initial load:",
+                    currentCarouselType,
+                    CarouselImages
+                );
+                loadCarouselImages(CarouselImages);
+            }
 
-            CarouselImages.forEach((imageData) => {
-                const slide = document.createElement("div");
-                slide.classList.add("Front-Carousel-Items-Slide");
+            function loadCarouselImages(images) {
+                CarouselContainer.innerHTML = "";
+                images.forEach((imageData) => {
+                    const slide = document.createElement("div");
+                    slide.classList.add("Front-Carousel-Items-Slide");
 
-                const img = document.createElement("img");
-                img.src = imageData.src;
-                img.alt = imageData.alt;
-                img.title = imageData.title;
+                    const img = document.createElement("img");
+                    img.src = imageData.src;
+                    img.alt = imageData.alt;
+                    img.title = imageData.title;
 
-                slide.appendChild(img);
-                CarouselContainer.appendChild(slide);
-            });
+                    slide.appendChild(img);
+                    CarouselContainer.appendChild(slide);
+                });
+            }
 
             // Initialize Slick only after slides are added
             const $carousel = $(".Front-Carousel-Items");
@@ -57,6 +88,48 @@ document.addEventListener("DOMContentLoaded", () => {
             // Custom buttons controlling slick
             $("#Button1").click(() => $carousel.slick("slickPrev"));
             $("#Button2").click(() => $carousel.slick("slickNext"));
+
+            // --- Responsive carousel reload on resize ---
+            let lastIsMobile = isMobile;
+            window.addEventListener("resize", () => {
+                const nowIsMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+                if (nowIsMobile !== lastIsMobile) {
+                    lastIsMobile = nowIsMobile;
+                    const newType = nowIsMobile
+                        ? "Mobile carousel"
+                        : "carousel";
+                    const newImages =
+                        data.home && data.home[newType]
+                            ? data.home[newType]
+                            : [];
+                    console.log("Resized:", newType, newImages);
+                    $carousel.slick("unslick");
+                    if (!Array.isArray(newImages) || newImages.length === 0) {
+                        CarouselContainer.innerHTML =
+                            '<div style="color:red;">No carousel images found for ' +
+                            newType +
+                            "</div>";
+                        console.error(
+                            "No images found for",
+                            newType,
+                            data.home
+                        );
+                    } else {
+                        loadCarouselImages(newImages);
+                    }
+                    $(".Front-Carousel-Items").slick({
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false,
+                        dots: false,
+                        infinite: true,
+                        speed: 700,
+                        autoplay: true,
+                        autoplaySpeed: 5000,
+                        cssEase: "cubic-bezier(0.165, 0.84, 0.44, 1)",
+                    });
+                }
+            });
 
             // Set Main-Banner-Box backgrounds
             const boxes = data.home.boxes;
