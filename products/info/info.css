@@ -22,7 +22,7 @@ body {
     align-items: stretch;
     width: 100vw;
     min-height: 100vh;
-    background: #fff;
+    /* background: #fff; */
     border-radius: 20px;
     overflow: hidden;
     border: none;
@@ -35,7 +35,7 @@ body {
 .Product-Card-Wrapper {
     width: 50vw;
     height: 100vh;
-    background: #e0e7ef;
+    /* background: #e0e7ef; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,6 +44,7 @@ body {
     box-sizing: border-box;
     overflow-y: auto;
     overflow-x: hidden;
+    margin-top: 50px;
 }
 
 .Product-Card-Wrapper-Left {
@@ -63,7 +64,7 @@ body {
 .Product-Card-Wrapper-Left-Image {
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    /* box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08); */
     margin-bottom: 16px;
     width: 100%;
     max-width: 320px;
@@ -119,7 +120,7 @@ body {
     justify-content: center;
     align-items: flex-start;
     padding: 48px 40px 48px 40px;
-    background: #fff;
+    /* background: #fff; */
     box-sizing: border-box;
     gap: 24px;
 }
@@ -127,7 +128,7 @@ body {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 10px;
-    color: #22223b;
+    /* color: #22223b; */
 }
 .Product-Card-Right > div:nth-child(2) {
     font-size: 1.3rem;
@@ -137,7 +138,7 @@ body {
 }
 .Product-Card-Right > div:nth-child(3) {
     font-size: 1.1rem;
-    color: #555;
+    /* color: #555; */
     margin-bottom: 18px;
     line-height: 1.6;
 }
@@ -151,7 +152,7 @@ body {
 .Product-Card-Right-Colors-label {
     font-size: 1rem;
     font-weight: 500;
-    color: #22223b;
+    /* color: #22223b; */
     margin-bottom: 2px;
 }
 .Product-Card-Right-Colors-options {
@@ -203,7 +204,7 @@ body {
     font-size: 1rem;
     font-weight: 500;
     margin-bottom: 2px;
-    color: #22223b;
+    /* color: #22223b; */
 }
 .Product-Card-Right-Size-options {
     display: flex;
@@ -256,7 +257,7 @@ body {
 /* ---------------------------------------------------------- */
 @media (max-width: 1000px), (max-height: 550px) {
     .Product {
-        padding-top: 70px; /* Prevent nav overlap on mobile */
+        padding-top: 20px;
     }
     .Product-Card {
         flex-direction: column;
@@ -271,6 +272,10 @@ body {
         min-height: unset;
         height: auto;
         box-sizing: border-box;
+    }
+    .Product-Card-Wrapper {
+        padding-top: 50px;
+        margin-top: 0;
     }
     .Product-Card-Wrapper-Left {
         padding: 0 8px;
@@ -311,5 +316,26 @@ body {
     }
     .Product-Card-Wrapper-Left {
         max-width: 280px; /* slightly smaller container */
+    }
+}
+
+.Product-Card-Wrapper-Back-Button {
+    width: fit-content;
+    font-weight: bold;
+    color: black;
+    position: relative;
+    top: 100px;
+    left: 30px;
+    z-index: 100;
+}
+@media (max-width: 1000px) {
+    .Product-Card-Wrapper-Back-Button {
+        top: 70px;
+    }
+}
+
+@media (max-width: 570px) {
+    .Product-Card-Wrapper-Back-Button {
+        top: 40px;
     }
 }

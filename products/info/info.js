@@ -62,6 +62,14 @@ $(document).ready(function () {
     )
         .then((res) => res.json())
         .then((data) => {
+            const footerMap = document.getElementById("Footer-Address");
+            footerMap.href = data.address[0].src;
+            const footerMapFrame = document.getElementById(
+                "Footer-Address-Frame"
+            );
+            footerMapFrame.src = data.address[1].src;
+            footerMapFrame.title = data.address[1].src;
+
             if (!Array.isArray(data.products)) return;
             const product = data.products.find(
                 (p) =>

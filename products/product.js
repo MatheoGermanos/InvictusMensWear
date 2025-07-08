@@ -141,6 +141,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
                 }
             }
+            const footerMap = document.getElementById("Footer-Address");
+            footerMap.href = data.address[0].src;
+            const footerMapFrame = document.getElementById(
+                "Footer-Address-Frame"
+            );
+            footerMapFrame.src = data.address[1].src;
+            footerMapFrame.title = data.address[1].src;
         })
         .catch((err) => console.error("Failed to load JSON:", err));
 
