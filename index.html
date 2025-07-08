@@ -181,6 +181,26 @@
                     </div>
                 </div>
             </section>
+
+            <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+            <section class="Main-Image-Section">
+                <div class="Main-Image-Text">
+                    <h1>Unleash Your Signature Look</h1>
+                    <p>
+                        Invictus MensWear delivers refined confidence with every
+                        stitch. Bold, timeless, made for you.
+                    </p>
+                    <a
+                        href="#shop"
+                        class="Main-Image-Button"
+                        >Explore Collection</a
+                    >
+                </div>
+                <div class="Main-Image">
+                    <img id="main-image" />
+                </div>
+            </section>
         </main>
         <footer class="Footer">
             <!-- Company Info Section -->
@@ -191,6 +211,7 @@
                 <img
                     class="Footer-Section-Company-Logo"
                     id="Footer-Logo"
+                    alt="Invictus Menswear Logo"
                 />
                 <p
                     id="footer-company-info"
@@ -205,8 +226,10 @@
                             >📍</span
                         >
                         <a
-                            href="https://maps.app.goo.gl/rrvHpnn6kHGxPApj9"
                             class="Footer-Section-Company-Address-Link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            id="Footer-Address"
                         >
                             Lebanon, Kalik Shopping St
                         </a>
@@ -216,8 +239,10 @@
                             >📞</span
                         >
                         <a
-                            href="#WhatsappLink"
+                            href="https://wa.me/yourwhatsappnumber"
                             class="Footer-Section-Company-Address-Link"
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
                             70 000 000
                         </a>
@@ -227,7 +252,7 @@
                             >✉️</span
                         >
                         <a
-                            href="#EmailLink"
+                            href="mailto:main@invictusmenswear.com"
                             class="Footer-Section-Company-Address-Link"
                         >
                             main@invictusmenswear.com
@@ -235,39 +260,6 @@
                     </div>
                 </address>
             </section>
-
-            <!-- Navigation Section -->
-            <nav
-                class="Footer-Section Footer-Section-Navigation"
-                aria-labelledby="footer-navigation"
-            >
-                <h2
-                    id="footer-navigation"
-                    class="Footer-Section-Navigation-Title"
-                >
-                    Navigation
-                </h2>
-                <ul class="Footer-Section-Navigation-List">
-                    <li class="Footer-Section-Navigation-Item">
-                        <a href="#">Home</a>
-                    </li>
-                    <li class="Footer-Section-Navigation-Item">
-                        <a href="#">About us</a>
-                    </li>
-                    <li class="Footer-Section-Navigation-Item">
-                        <a href="#">Contact</a>
-                    </li>
-                    <li class="Footer-Section-Navigation-Item">
-                        <a href="#">FAQs</a>
-                    </li>
-                    <li class="Footer-Section-Navigation-Item">
-                        <a href="#">Categories</a>
-                    </li>
-                    <li class="Footer-Section-Navigation-Item">
-                        <a href="#">Site map</a>
-                    </li>
-                </ul>
-            </nav>
 
             <!-- Social Media Section -->
             <section
@@ -284,43 +276,24 @@
                     class="Footer-Section-Social-Icons"
                     id="Footer-Social-Icons"
                 >
-                    <!-- Social icons will be injected dynamically by main.js -->
+                    <!-- Social icons injected by JS -->
                 </div>
             </section>
 
-            <!-- Newsletter Signup Section -->
+            <!-- Map Section -->
             <section
-                class="Footer-Section Footer-Section-Newsletter"
-                aria-labelledby="footer-newsletter"
+                class="Footer-Section Responsive-Map-Wrapper"
+                aria-label="Company location on map"
             >
-                <h2
-                    id="footer-newsletter"
-                    class="Footer-Section-Newsletter-Title"
-                >
-                    Newsletter Signup
-                </h2>
-                <form class="Footer-Section-Newsletter-Form">
-                    <label
-                        for="email"
-                        class="Footer-Section-Newsletter-Label"
-                        >Subscribe to receive the latest updates:</label
-                    >
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Your email"
-                        required
-                        class="Footer-Section-Newsletter-Input"
-                    />
-                    <button
-                        type="submit"
-                        class="Footer-Section-Newsletter-Button"
-                    >
-                        Subscribe
-                    </button>
-                </form>
+                <iframe
+                    id="Footer-Address-Frame"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Invictus Menswear Location on Google Maps"
+                ></iframe>
             </section>
+
             <div class="Footer-Copyright">
                 &copy; 2025 Invictus Menswear. All rights reserved.
             </div>

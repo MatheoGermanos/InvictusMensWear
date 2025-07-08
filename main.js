@@ -175,6 +175,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     socialIconsContainer.appendChild(a);
                 });
             }
+            // Assuming the JSON has a property called 'mainImage' with the image URL
+            const img = document.getElementById("main-image");
+            img.src = data.home.boxes[2].src;
+            img.alt = data.home.boxes[2].alt;
+            img.title = data.home.boxes[2].title;
+
+            const footerMap = document.getElementById("Footer-Address");
+            footerMap.href = data.address[0].src;
+            const footerMapFrame = document.getElementById(
+                "Footer-Address-Frame"
+            );
+            footerMapFrame.src = data.address[1].src;
+            footerMapFrame.title = data.address[1].src;
         })
         .catch((err) => console.error("Failed to load JSON:", err));
 
