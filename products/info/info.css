@@ -323,7 +323,7 @@ body {
 .Product-Card-Wrapper-Back-Button {
     width: fit-content;
     font-weight: bold;
-    color: black;
+    color: inherit;
     position: relative;
     top: 100px;
     left: 30px;
