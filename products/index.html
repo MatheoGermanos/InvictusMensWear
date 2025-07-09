@@ -129,6 +129,51 @@
             </div>
         </nav>
         <main class="Main">
+            <section class="Search-Wrapper">
+                <div class="Search-Container">
+                    <!-- Search Bar -->
+                    <div class="Search-Bar">
+                        <input
+                            type="text"
+                            id="ProductSearch"
+                            class="Search-Bar-Input"
+                            placeholder="Search..."
+                        />
+                        <button
+                            type="submit"
+                            class="Search-Bar-Button"
+                            id="ProductSearchButton"
+                        >
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+
+                    <!-- Filter Dropdown -->
+                    <div class="Filter-Dropdown">
+                        <button
+                            class="Filter-Button"
+                            onclick="toggleFilterMenu()"
+                        >
+                            <i class="fas fa-filter"></i>
+                        </button>
+                        <div
+                            class="Filter-Menu"
+                            id="FilterMenu"
+                        >
+                            <!-- <button onclick="selectCategory('All')">All</button>
+                            <button onclick="selectCategory('Clothing')">
+                                Clothing
+                            </button>
+                            <button onclick="selectCategory('shirt')">
+                                shirt
+                            </button>
+                            <button onclick="selectCategory('Accessories')">
+                                Accessories
+                            </button> -->
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section class="Info-Card"></section>
         </main>
         <footer class="Footer">
@@ -232,5 +277,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Slick JS -->
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
     <script src="product.js"></script>
 </html>

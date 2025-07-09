@@ -589,3 +589,114 @@ body.night-theme .Info-Card-Single {
 .Main {
     transition: padding-top 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ++++++++++++++++++++++++++++++++++++++ Search and filter +++++++++++++++++++++++++++++++++++++++++++++ */
+
+.Search-Wrapper {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.Search-Container {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    flex-wrap: wrap;
+    max-width: 600px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.Search-Bar {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    font-family: sans-serif;
+}
+
+.Search-Bar-Input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    min-width: 0;
+}
+
+.Search-Bar-Button {
+    background-color: #666;
+    color: white;
+    border: none;
+    padding: 0 16px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.Search-Bar-Button:hover {
+    background-color: #444;
+}
+
+.Filter-Dropdown {
+    position: relative;
+}
+
+.Filter-Button {
+    background-color: #666;
+    color: white;
+    border: none;
+    padding: 0 16px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 8px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.Filter-Button:hover {
+    background-color: #444;
+}
+
+.Filter-Menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 4px;
+    display: none;
+    min-width: 150px;
+    z-index: 10;
+}
+
+.Filter-Menu.active {
+    display: block;
+}
+
+.Filter-Menu button {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.Filter-Menu button:hover {
+    background-color: #f0f0f0;
+}
