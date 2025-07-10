@@ -208,7 +208,7 @@ body.night-theme .Info-Card-Single {
     transform: scaleX(0.8);
 }
 .Mobile-Nav-Content-Item-Extra {
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;
 }
 
 /* -------------------------------------------------------------------------------------------------- */
