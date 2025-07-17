@@ -63,6 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     img.alt = imageData.alt;
                     img.title = imageData.title;
                     img.loading = "lazy";
+                    img.width = 400;
+                    img.height = 400;
 
                     slide.appendChild(img);
                     CarouselContainer.appendChild(slide);
