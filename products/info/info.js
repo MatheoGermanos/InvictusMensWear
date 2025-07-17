@@ -62,6 +62,8 @@ $(document).ready(function () {
     )
         .then((res) => res.json())
         .then((data) => {
+            // Set logo using utility function
+            setLogo(data.Logo);
             const footerMap = document.getElementById("Footer-Address");
             footerMap.href = data.address[0].src;
             const footerMapFrame = document.getElementById(
@@ -70,14 +72,21 @@ $(document).ready(function () {
             footerMapFrame.src = data.address[1].src;
             footerMapFrame.title = data.address[1].src;
 
-            if (!Array.isArray(data.products)) return;
+            if (!Array.isArray(data.products)) {
+                console.error("No products array in data");
+                return;
+            }
             const product = data.products.find(
                 (p) =>
                     p.title &&
                     p.title.toLowerCase() ===
                         decodeURIComponent(prodName).toLowerCase()
             );
-            if (!product) return;
+            if (!product) {
+                console.error("Product not found for:", prodName);
+                return;
+            }
+            console.log("Product found:", product);
 
             let selectedColorIdx = 0;
             if (colorName && Array.isArray(product.colors)) {
@@ -89,6 +98,18 @@ $(document).ready(function () {
                 if (idx !== -1) selectedColorIdx = idx;
             }
 
+            const selectedColor = product.colors[selectedColorIdx];
+            console.log("Selected color:", selectedColor);
+            const allImages = [
+                selectedColor.main,
+                ...(selectedColor.sub || []),
+            ];
+            console.log("All images for slider:", allImages);
+            if (!allImages.length || !allImages[0]) {
+                console.error("No images found for product/color:", product.title, selectedColor);
+            }
+            initSliders(allImages);
+
             // Update product text
             const rightDivs = $(".Product-Card-Right > div");
             if (rightDivs.length >= 3) {
@@ -96,13 +117,6 @@ $(document).ready(function () {
                 $(rightDivs[1]).text(product.price);
                 $(rightDivs[2]).text(product.description || "");
             }
-
-            const selectedColor = product.colors[selectedColorIdx];
-            const allImages = [
-                selectedColor.main,
-                ...(selectedColor.sub || []),
-            ];
-            initSliders(allImages);
 
             // Update color swatches
             const colorOptions = $(".Product-Card-Right-Colors-options");
