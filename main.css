@@ -252,8 +252,7 @@ body.night-theme {
 .Front-Carousel {
     position: relative;
     overflow: hidden;
-    min-height: 600px;
-    height: 600px;
+    /* padding-top: 80px; */
     transition: padding-top 0.15s linear;
 }
 .Front-Carousel-Items .Front-Carousel-Items-Slide {
@@ -261,8 +260,6 @@ body.night-theme {
 }
 .Front-Carousel-Items-Slide img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
     display: block;
 }
 .Front-Carousel-Button {
