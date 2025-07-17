@@ -275,7 +275,7 @@ body {
         box-sizing: border-box;
     }
     .Product-Card-Wrapper {
-        padding-top: 50px;
+        padding-top: 70px;
         margin-top: 0;
     }
     .Product-Card-Wrapper-Left {
@@ -337,6 +337,6 @@ body {
 
 @media (max-width: 570px) {
     .Product-Card-Wrapper-Back-Button {
-        top: 40px;
+        top: 55px;
     }
 }

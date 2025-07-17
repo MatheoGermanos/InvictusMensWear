@@ -208,7 +208,7 @@ body.night-theme .Info-Card-Single {
     transform: scaleX(0.8);
 }
 .Mobile-Nav-Content-Item-Extra {
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;
 }
 
 /* -------------------------------------------------------------------------------------------------- */
@@ -247,8 +247,8 @@ body.night-theme .Info-Card-Single {
         font-size: 1.3rem;
     }
     .Desktop-Nav-Logo img {
-        width: 100px;
-        height: 50px;
+        width: 160px;
+        height: 70px;
     }
     .Mobile-Nav-Content-Item {
         font-size: 1.2rem;
