@@ -25,10 +25,10 @@ $(document).ready(function () {
 
         images.forEach((src, i) => {
             $mainSlider.append(
-                `<div><img src="${src}" alt="Main ${i + 1}" /></div>`
+                `<div><img src="${src}" alt="Main ${i + 1}" loading="lazy" /></div>`
             );
             $thumbSlider.append(
-                `<div><img src="${src}" alt="Thumb ${i + 1}" /></div>`
+                `<div><img src="${src}" alt="Thumb ${i + 1}" loading="lazy" /></div>`
             );
         });
 

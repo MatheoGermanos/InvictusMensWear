@@ -6,7 +6,20 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0"
         />
-        <title>Product Details | Invictus MensWear</title>
+        <title>Invictus MensWear | Product Details</title>
+        <meta name="description" content="View product details for Invictus MensWear. High-quality men's fashion, shirts, suits, and more at the best prices in Lebanon." />
+        <meta name="keywords" content="menswear, product, details, fashion, clothing, suits, shirts, Invictus, Lebanon, style, shop, kaslik" />
+        <meta property="og:title" content="Invictus MensWear | Product Details" />
+        <meta property="og:description" content="View product details for Invictus MensWear. High-quality men's fashion, shirts, suits, and more at the best prices in Lebanon." />
+        <meta property="og:image" content="/InvictusMensWearAssets/Logo.png" />
+        <meta property="og:type" content="product" />
+        <meta property="og:url" content="https://yourdomain.com/InvictusMensWear/products/info/" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Invictus MensWear | Product Details" />
+        <meta name="twitter:description" content="View product details for Invictus MensWear. High-quality men's fashion, shirts, suits, and more at the best prices in Lebanon." />
+        <meta name="twitter:image" content="/InvictusMensWearAssets/Logo.png" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://yourdomain.com/InvictusMensWear/products/info/" />
         <!-- Slick Carousel -->
         <link
             rel="stylesheet"
@@ -28,15 +41,21 @@
             rel="stylesheet"
             href="../../main.css"
         />
+        <style>
+            :focus { outline: 2px solid #02ce02 !important; outline-offset: 2px; }
+            .skip-link { position: absolute; left: -999px; top: auto; width: 1px; height: 1px; overflow: hidden; z-index: 10000; background: #fff; color: #222; padding: 0.5em 1em; border-radius: 4px; }
+            .skip-link:focus { left: 10px; top: 10px; width: auto; height: auto; font-size: 1.1em; box-shadow: 0 2px 8px #0002; }
+        </style>
     </head>
     <body>
-        <nav class="Main-Navbar">
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        <nav class="Main-Navbar" role="navigation" aria-label="Main navigation">
             <div class="Desktop-Nav">
                 <div
                     class="Desktop-Nav-Logo"
                     id="Desktop-Nav-Logo"
                 >
-                    <img id="Navbar-Logo" />
+                    <img id="Navbar-Logo" alt="Invictus MensWear logo" />
                 </div>
                 <div class="Desktop-Nav-Content">
                     <a
@@ -70,33 +89,7 @@
                         <span class="Desktop-Nav-Toggles-Theme-Slider"></span>
                     </label>
                     <div class="Desktop-Nav-Toggles-Mobile">
-                        <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                        >
-                            <rect
-                                y="4"
-                                width="24"
-                                height="2"
-                                fill="currentColor"
-                            />
-                            <rect
-                                y="11"
-                                width="24"
-                                height="2"
-                                fill="currentColor"
-                            />
-                            <rect
-                                y="18"
-                                width="24"
-                                height="2"
-                                fill="currentColor"
-                            />
-                        </svg>
+                        <i class="fas fa-bars"></i>
                     </div>
                 </div>
             </div>
@@ -119,14 +112,14 @@
                     >
                     <a
                         href="../../index.html#contact"
-                        class="Mobile-Nav-Content-Item Mobile-Nav-Content-Item-Extra"
+                        class="Mobile-Nav-Content-Item"
                         >CONTACT</a
                     >
                 </div>
             </div>
         </nav>
-        <main class="Product">
-            <article class="Product-Card">
+        <main id="main-content" role="main">
+            <article class="Product-Card" aria-label="Product details">
                 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
                 <a
                     href="#"
@@ -141,6 +134,8 @@
                 <section
                     class="Product-Card-Wrapper"
                     aria-label="Product Images"
+                    role="region"
+                    aria-roledescription="carousel"
                 >
                     <div class="Product-Card-Wrapper-Left">
                         <!-- Main image slider -->
@@ -242,7 +237,7 @@
                 </div>
             </article>
         </main>
-        <footer class="Footer">
+        <footer class="Footer" role="contentinfo">
             <!-- Company Info Section -->
             <section
                 class="Footer-Section Footer-Section-Company"

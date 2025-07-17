@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     img.src = imageData.src;
                     img.alt = imageData.alt;
                     img.title = imageData.title;
+                    img.loading = "lazy";
 
                     slide.appendChild(img);
                     CarouselContainer.appendChild(slide);
@@ -155,6 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
             img.src = data.home.boxes[2].src;
             img.alt = data.home.boxes[2].alt;
             img.title = data.home.boxes[2].title;
+            img.loading = "lazy";
 
             // Use utility to set map links
             setFooterMap(data.address);

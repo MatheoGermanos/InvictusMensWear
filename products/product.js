@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         img.className = "Info-Card-Single-Image";
                         img.src = mainImgSrc;
                         img.alt = product.title;
+                        img.loading = "lazy";
                         card.appendChild(img);
 
                         // Title and price
@@ -273,6 +274,7 @@ function selectCategory(category) {
                     img.className = "Info-Card-Single-Image";
                     img.src = mainColor.main || "";
                     img.alt = product.title;
+                    img.loading = "lazy";
                     card.appendChild(img);
 
                     const textDiv = document.createElement("div");
@@ -387,6 +389,7 @@ function displayProducts(products) {
         img.className = "Info-Card-Single-Image";
         img.src = mainColor.main || "";
         img.alt = product.title;
+        img.loading = "lazy";
         card.appendChild(img);
 
         const textDiv = document.createElement("div");
