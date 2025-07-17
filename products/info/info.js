@@ -1,4 +1,9 @@
+showLoadingIndicator("Loading product details...");
+
 $(document).ready(function () {
+    // Show improved loading indicator
+    showLoadingIndicator("Loading product details...");
+
     const $mainSlider = $(".Product-Card-Wrapper-Left-Image");
     const $thumbSlider = $(".Product-Card-Wrapper-Left-Choice");
 
@@ -62,15 +67,14 @@ $(document).ready(function () {
     )
         .then((res) => res.json())
         .then((data) => {
+            // Hide loading indicator
+            hideLoadingIndicator();
             // Set logo using utility function
             setLogo(data.Logo);
-            const footerMap = document.getElementById("Footer-Address");
-            footerMap.href = data.address[0].src;
-            const footerMapFrame = document.getElementById(
-                "Footer-Address-Frame"
-            );
-            footerMapFrame.src = data.address[1].src;
-            footerMapFrame.title = data.address[1].src;
+            // Use utility to set social icons
+            setSocialIcons(data["Social Media"]);
+            // Use utility to set map links
+            setFooterMap(data.address);
 
             if (!Array.isArray(data.products)) {
                 console.error("No products array in data");
@@ -151,12 +155,24 @@ $(document).ready(function () {
 
                 colorOptions.append(colorDiv);
             });
+        })
+        .catch((err) => {
+            // Hide loading indicator
+            hideLoadingIndicator();
+            // Show user-friendly error message
+            const main = document.querySelector("main");
+            if (main) {
+                main.innerHTML = '<div style="color:red;text-align:center;padding:2em;">Failed to load product details. Please check your connection and try again.</div>';
+            }
+            console.error("Failed to load JSON:", err);
         });
+
+    // Use utility for theme switcher
+    setupThemeSwitcher("Light-Day-Switch");
 });
 
-// Resize handling (debounced to avoid overcalls)
-let resizeTimeout;
-$(window).on("resize", function () {
+// Debounced resize handling (for Slick and layout)
+$(window).on("resize", debounce(function () {
     // Get current images from DOM
     const mainImgs = [];
     $(".Product-Card-Wrapper-Left-Image > div img").each(function () {
@@ -199,7 +215,7 @@ $(window).on("resize", function () {
             infinite: true,
         });
     }
-});
+}, 150));
 
 // Accessibility for Slick
 function fixSlickAria(container) {

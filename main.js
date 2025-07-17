@@ -3,7 +3,12 @@
 
 const NAV_TOGGLE_ANIMATION_DURATION = 210;
 
+showLoadingIndicator("Loading site...");
+
 document.addEventListener("DOMContentLoaded", () => {
+    // Show improved loading indicator
+    showLoadingIndicator("Loading site...");
+
     adjustCarouselMargin();
 
     // Images and dynamic content
@@ -12,6 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
     )
         .then((res) => res.json())
         .then((data) => {
+            // Hide loading indicator
+            hideLoadingIndicator();
+
             // Use utility to set logo
             setLogo(data.Logo);
 
@@ -151,7 +159,16 @@ document.addEventListener("DOMContentLoaded", () => {
             // Use utility to set map links
             setFooterMap(data.address);
         })
-        .catch((err) => console.error("Failed to load JSON:", err));
+        .catch((err) => {
+            // Hide loading indicator
+            hideLoadingIndicator();
+            // Show user-friendly error message
+            const main = document.querySelector("main");
+            if (main) {
+                main.innerHTML = '<div style="color:red;text-align:center;padding:2em;">Failed to load site data. Please check your connection and try again.</div>';
+            }
+            console.error("Failed to load JSON:", err);
+        });
 
     // Use utility for theme switcher
     setupThemeSwitcher("Light-Day-Switch");
@@ -170,7 +187,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // ------ Resize ---------
     const MOBILE_BREAKPOINT = 767;
 
-    window.addEventListener("resize", () => {
+    // Debounced resize event for performance
+    window.addEventListener("resize", debounce(() => {
         if (
             window.innerWidth > MOBILE_BREAKPOINT &&
             mobileNav.classList.contains("isOpen")
@@ -180,13 +198,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 adjustCarouselMargin();
             }, NAV_TOGGLE_ANIMATION_DURATION);
         }
-    });
+    }, 150));
 });
 
-$(window).on("resize", function () {
+// Debounced Slick resize and margin adjustment
+$(window).on("resize", debounce(function () {
     $(".Front-Carousel-Items").slick("setPosition");
     adjustCarouselMargin();
-});
+}, 150));
 
 function adjustCarouselMargin() {
     const navbar = document.querySelector(".Main-Navbar");

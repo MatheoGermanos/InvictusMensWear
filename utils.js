@@ -97,5 +97,76 @@ function debounce(func, wait) {
     };
 }
 
+let _loadingIndicatorShownAt = 0;
+let _loadingIndicatorHideTimeout = null;
+
+/**
+ * Show a styled loading indicator (spinner bar)
+ * @param {string} [message] - Optional loading message
+ */
+function showLoadingIndicator(message = "Loading...") {
+    let loadingDiv = document.getElementById("loading-indicator");
+    if (!loadingDiv) {
+        loadingDiv = document.createElement("div");
+        loadingDiv.id = "loading-indicator";
+        loadingDiv.innerHTML = `
+            <div class="loading-spinner"></div>
+            <span class="loading-message">${message}</span>
+        `;
+        loadingDiv.style.position = "fixed";
+        loadingDiv.style.top = "0";
+        loadingDiv.style.left = "0";
+        loadingDiv.style.width = "100%";
+        loadingDiv.style.height = "100vh";
+        loadingDiv.style.background = "rgba(255,255,255,0.85)";
+        loadingDiv.style.display = "flex";
+        loadingDiv.style.flexDirection = "column";
+        loadingDiv.style.alignItems = "center";
+        loadingDiv.style.justifyContent = "center";
+        loadingDiv.style.zIndex = "9999";
+        document.body.appendChild(loadingDiv);
+    } else {
+        loadingDiv.querySelector('.loading-message').textContent = message;
+        loadingDiv.style.display = 'flex';
+    }
+}
+
+/**
+ * Hide the loading indicator
+ */
+function hideLoadingIndicator() {
+    const loadingDiv = document.getElementById("loading-indicator");
+    if (loadingDiv) loadingDiv.style.display = "none";
+}
+
+// Add spinner CSS to the page if not already present
+(function addSpinnerStyles() {
+    if (!document.getElementById('loading-spinner-style')) {
+        const style = document.createElement('style');
+        style.id = 'loading-spinner-style';
+        style.textContent = `
+        .loading-spinner {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #222;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1em;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .loading-message {
+            font-size: 1.2em;
+            color: #222;
+            font-family: inherit;
+        }
+        `;
+        document.head.appendChild(style);
+    }
+})();
+
 // Export functions for use in other scripts (for ES6 modules, otherwise global)
 // export { setLogo, setSocialIcons, setFooterMap, setupThemeSwitcher, debounce } 

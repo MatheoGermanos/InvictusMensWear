@@ -1,27 +1,34 @@
+showLoadingIndicator("Loading products...");
+
 const NAV_TOGGLE_ANIMATION_DURATION = 210;
 
 let allProducts = [];
 let fuse = null;
 
+// Make adjustMainPadding globally available
+function adjustMainPadding() {
+    var navbar = document.querySelector(".Main-Navbar");
+    var main = document.querySelector(".Main");
+    if (navbar && main) {
+        main.style.paddingTop = navbar.offsetHeight + "px";
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+    // Show improved loading indicator
+    showLoadingIndicator("Loading products...");
+
     adjustMainPadding();
-    // Images
+    // Images and dynamic content
     fetch(
         "https://raw.githubusercontent.com/MatheoGermanos/InvictusMensWearAssets/master/final.json"
     )
         .then((res) => res.json())
         .then((data) => {
-            const logo = data.Logo; // Read the image object by key
-
-            const Nav = document.getElementById("Navbar-Logo");
-            Nav.src = logo.src;
-            Nav.alt = logo.alt;
-            Nav.title = logo.title;
-
-            const Footer = document.getElementById("Footer-Logo");
-            Footer.src = logo.src;
-            Footer.alt = logo.alt;
-            Footer.title = logo.title;
+            // Hide loading indicator
+            hideLoadingIndicator();
+            // Use utility to set logo
+            setLogo(data.Logo);
 
             allProducts = data.products || [];
 
@@ -35,28 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 populateCategoryMenu(data.categories);
             }
 
-            // Dynamically add social media icons to the footer (fixed for 'Social Media' key)
-            if (Array.isArray(data["Social Media"])) {
-                const socialIconsContainer = document.getElementById(
-                    "Footer-Social-Icons"
-                );
-                socialIconsContainer.innerHTML = "";
-                data["Social Media"].forEach((social) => {
-                    const a = document.createElement("a");
-                    a.href = "#"; // No href in your JSON, so default to '#'. Add URLs to your JSON for real links.
-                    a.target = "_blank";
-                    a.rel = "noopener noreferrer";
-                    a.title = social.title || social.alt || "Social Link";
-
-                    const img = document.createElement("img");
-                    img.src = social.src;
-                    img.alt = social.alt || social.title || "Social Icon";
-                    img.className = "Footer-Section-Social-Icon";
-
-                    a.appendChild(img);
-                    socialIconsContainer.appendChild(a);
-                });
-            }
+            // Use utility to set social icons
+            setSocialIcons(data["Social Media"]);
 
             // --- Load products dynamically ---
             if (Array.isArray(data.products)) {
@@ -156,15 +143,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
                 }
             }
-            const footerMap = document.getElementById("Footer-Address");
-            footerMap.href = data.address[0].src;
-            const footerMapFrame = document.getElementById(
-                "Footer-Address-Frame"
-            );
-            footerMapFrame.src = data.address[1].src;
-            footerMapFrame.title = data.address[1].src;
+            // Use utility to set map links
+            setFooterMap(data.address);
         })
-        .catch((err) => console.error("Failed to load JSON:", err));
+        .catch((err) => {
+            // Hide loading indicator
+            hideLoadingIndicator();
+            // Show user-friendly error message
+            const main = document.querySelector("main");
+            if (main) {
+                main.innerHTML = '<div style="color:red;text-align:center;padding:2em;">Failed to load products. Please check your connection and try again.</div>';
+            }
+            console.error("Failed to load JSON:", err);
+        });
 
     // ————— Search Bar Setup —————
     const searchInput = document.getElementById("ProductSearch");
@@ -190,25 +181,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ————— Theme switcher —————
-    const themeSwitch = document.getElementById("Light-Day-Switch");
-    const HTMLBody = document.body;
-    const savedTheme = localStorage.getItem("theme");
-
-    if (savedTheme === "night") {
-        HTMLBody.classList.add("night-theme");
-        themeSwitch.checked = true;
-    }
-
-    themeSwitch.addEventListener("change", () => {
-        if (themeSwitch.checked) {
-            HTMLBody.classList.add("night-theme");
-            localStorage.setItem("theme", "night");
-        } else {
-            HTMLBody.classList.remove("night-theme");
-            localStorage.setItem("theme", "day");
-        }
-    });
+    // Use utility for theme switcher
+    setupThemeSwitcher("Light-Day-Switch");
 
     // ————— Mobile nav toggle —————
     const navToggleBtn = document.querySelector(".Desktop-Nav-Toggles-Mobile");
@@ -224,7 +198,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // ------ Resize ---------
     const MOBILE_BREAKPOINT = 767;
 
-    window.addEventListener("resize", () => {
+    // Debounced resize event for performance
+    window.addEventListener("resize", debounce(() => {
         if (
             window.innerWidth > MOBILE_BREAKPOINT &&
             mobileNav.classList.contains("isOpen")
@@ -234,21 +209,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 adjustCarouselMargin();
             }, NAV_TOGGLE_ANIMATION_DURATION);
         }
-    });
-
-    // Fix nav overlap: set .Main padding-top to navbar height
-    function adjustMainPadding() {
-        var navbar = document.querySelector(".Main-Navbar");
-        var main = document.querySelector(".Main");
-        if (navbar && main) {
-            main.style.paddingTop = navbar.offsetHeight + "px";
-        }
-    }
-
-    // --- Resize logic from main.js ---
-    $(window).on("resize", function () {
         adjustMainPadding();
-    });
+    }, 150));
+
+    // Debounced Slick resize and margin adjustment
+    $(window).on("resize", debounce(function () {
+        adjustMainPadding();
+    }, 150));
 
     adjustMainPadding();
     window.addEventListener("resize", adjustMainPadding);
